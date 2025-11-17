@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASSETRAZ - India's Most Trusted Property Verification Platform</title><!-- SEO Meta Tags -->
+  <meta name="description" content="ASSETRAZ - India's most trusted property verification platform powered by AI and secured by blockchain. Verify property documents with 97.3% accuracy.">
+  <meta name="keywords" content="property verification, real estate, blockchain, AI, fraud detection, India, TNREGINET, RERA">
+  <meta name="author" content="ASSETRAZ Technologies"><!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="ASSETRAZ - Property Verification Platform">
+  <meta property="og:description" content="India's most trusted property verification platform powered by AI and secured by blockchain.">
+  <meta property="og:type" content="website"><!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ASSETRAZ - Property Verification Platform">
+  <meta name="twitter:description" content="India's most trusted property verification platform powered by AI and secured by blockchain."><!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>"><!-- Stylesheets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+        
+        .btn-primary {
+            @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl;
+        }
+        
+        .btn-secondary {
+            @apply border-2 font-semibold py-3 px-6 rounded-lg transition-all shadow-lg hover:shadow-xl;
+        }
+        
+        .stats-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .real-time-indicator {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .security-badge {
+            @apply px-2 py-1 bg-white bg-opacity-20 rounded text-xs;
+        }
+        
+        .blockchain-verified {
+            @apply bg-green-500 bg-opacity-20;
+        }
+        
+        .tagline-highlight {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #3b82f6;
+            border-radius: 1px;
+        }
+        
+
+        
+        .verification-form {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #6b7280;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast.success { background: #10b981; }
+        .toast.error { background: #ef4444; }
+        .toast.info { background: #3b82f6; }
+        
+        .dashboard-widget {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .api-endpoint {
+            background: #1f2937;
+            color: #f9fafb;
+            font-family: 'Courier New', monospace;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 8px 0;
+        }
+        
+        .method-get { border-left: 4px solid #10b981; }
+        .method-post { border-left: 4px solid #3b82f6; }
+        .method-put { border-left: 4px solid #f59e0b; }
+        .method-delete { border-left: 4px solid #ef4444; }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="min-h-full bg-gray-50"><!-- Security Header -->
+  <div class="bg-slate-800 text-white py-2 px-4 text-center text-sm">
+   <div class="flex items-center justify-center space-x-4 flex-wrap"><span class="security-badge">🔒 Secure Platform</span> <span class="security-badge blockchain-verified">⛓️ Blockchain Verified</span> <span class="security-badge">🛡️ ISO 27001 Compliant</span>
+    <div class="flex items-center space-x-1">
+     <div class="real-time-indicator"></div><span>Real-time Monitoring Active</span>
+    </div>
+   </div>
+  </div><!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+     <div class="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity" onclick="showSection('hero')">
+      <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+       <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+       </svg>
+      </div>
+      <div>
+       <h1 id="platform-name" class="text-xl font-bold text-gray-900">ASSETRAZ</h1>
+       <p id="tagline" class="text-xs tagline-highlight">Global Property Verification Platform</p>
+      </div>
+     </div><!-- Navigation -->
+     <div id="main-navigation" class="hidden md:flex items-center space-x-4"><button onclick="showSection('how-it-works')" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">How It Works</button> <button onclick="showSection('verification')" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">Verify Property</button> <button onclick="showSection('dashboard')" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">Dashboard</button> <button onclick="showSection('analytics')" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">Analytics</button> <button onclick="showSection('api-docs')" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">API</button> <!-- Contact Link --> <button onclick="showToast('Contact feature coming soon!', 'info')" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center">
+       <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+       </svg> Contact </button> <!-- User Profile -->
+      <div class="relative"><button id="user-menu-btn" onclick="handleUserMenuClick()" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center"><span id="user-avatar" class="text-blue-600 font-semibold text-sm">D</span>
+        </div><span id="user-display-name" class="font-medium">Admin User</span> </button>
+       <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border hidden">
+        <div class="py-2">
+         <div class="px-4 py-2 text-sm text-gray-700 border-b">
+          Admin Account
+         </div><button onclick="showSection('dashboard')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</button> <button onclick="showSection('analytics')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Analytics</button>
+         <div class="border-t"><button onclick="handleLogout()" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Sign Out</button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Mobile Menu Button -->
+     <div class="md:hidden"><button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-blue-600">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden pb-4">
+     <div class="flex flex-col space-y-2"><button onclick="showSection('how-it-works')" class="text-left text-gray-700 hover:text-blue-600 font-medium py-2">How It Works</button> <button onclick="showSection('verification')" class="text-left text-gray-700 hover:text-blue-600 font-medium py-2">Verify Property</button> <button onclick="showSection('dashboard')" class="text-left text-gray-700 hover:text-blue-600 font-medium py-2">Dashboard</button> <button onclick="showSection('analytics')" class="text-left text-gray-700 hover:text-blue-600 font-medium py-2">Analytics</button> <button onclick="showSection('api-docs')" class="text-left text-gray-700 hover:text-blue-600 font-medium py-2">API</button> <button onclick="showToast('Contact feature coming soon!', 'info')" class="text-left text-gray-700 hover:text-blue-600 font-medium py-2">Contact</button>
+     </div>
+    </div>
+   </nav>
+  </header><!-- Main Content -->
+  <main><!-- Hero Section -->
+   <section id="hero-section" class="gradient-bg text-gray-900 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+     <div class="mb-4"><span class="inline-block px-4 py-2 bg-blue-600 bg-opacity-10 rounded-full text-sm font-semibold backdrop-blur-sm text-blue-700"> 🚀 Global Property Verification Platform </span>
+     </div>
+     <h1 id="hero-title" class="text-4xl lg:text-5xl font-bold mb-6">ASSETRAZ - Modern Real Estate Verification Platform</h1>
+     <p class="text-xl mb-8 text-gray-600 max-w-3xl mx-auto">Enterprise-grade verification platform with AI Trust Scoring, Blockchain Security, Real-time Monitoring, and Comprehensive Compliance Tools</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"><button id="cta-button" onclick="showSection('verification')" class="btn-primary"> Start Verification </button> <button onclick="showSection('api-docs')" class="btn-secondary border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"> View API Docs </button> <button onclick="showSection('dashboard')" class="btn-secondary border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white"> View Dashboard </button>
+     </div><!-- Real-time Stats -->
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+      <div class="stats-card bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+       <div class="text-2xl font-bold text-blue-600" id="live-verifications">
+        1,247
+       </div>
+       <div class="text-gray-600 text-sm">
+        Total Verifications
+       </div>
+       <div class="text-xs text-green-500 mt-1">
+        ↗ +12% this month
+       </div>
+      </div>
+      <div class="stats-card bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+       <div class="text-2xl font-bold text-green-600">
+        99.7%
+       </div>
+       <div class="text-gray-600 text-sm">
+        System Uptime
+       </div>
+       <div class="text-xs text-gray-500 mt-1">
+        24/7 Monitoring
+       </div>
+      </div>
+      <div class="stats-card bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+       <div class="text-2xl font-bold text-indigo-600">
+        2.1s
+       </div>
+       <div class="text-gray-600 text-sm">
+        Avg Response Time
+       </div>
+       <div class="text-xs text-green-500 mt-1">
+        ↓ Optimized
+       </div>
+      </div>
+      <div class="stats-card bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+       <div class="text-2xl font-bold text-purple-600">
+        5
+       </div>
+       <div class="text-gray-600 text-sm">
+        Data Sources
+       </div>
+       <div class="text-xs text-green-500 mt-1">
+        All systems active
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- How It Works Section -->
+   <section id="how-it-works-section" class="py-16 bg-white hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">How ASSETRAZ Works</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our advanced verification process combines multiple data sources with AI analysis to provide comprehensive property verification</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+       <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-2">1. Submit Documents</h3>
+       <p class="text-gray-600">Upload property documents for verification through our secure platform</p>
+      </div>
+      <div class="text-center">
+       <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-2">2. AI Analysis</h3>
+       <p class="text-gray-600">Our AI engine analyzes documents across multiple government databases</p>
+      </div>
+      <div class="text-center">
+       <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-2">3. Blockchain Certificate</h3>
+       <p class="text-gray-600">Receive tamper-proof verification certificate secured by blockchain</p>
+      </div>
+     </div><!-- Data Sources -->
+     <div class="mt-16">
+      <h3 class="text-2xl font-bold text-center mb-8">Integrated Data Sources</h3>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+       <div class="bg-gray-50 p-4 rounded-lg text-center">
+        <div class="font-semibold text-sm">
+         TNREGINET
+        </div>
+        <div class="text-xs text-gray-600">
+         Registration Records
+        </div>
+       </div>
+       <div class="bg-gray-50 p-4 rounded-lg text-center">
+        <div class="font-semibold text-sm">
+         TN RERA
+        </div>
+        <div class="text-xs text-gray-600">
+         Project Database
+        </div>
+       </div>
+       <div class="bg-gray-50 p-4 rounded-lg text-center">
+        <div class="font-semibold text-sm">
+         Land Records
+        </div>
+        <div class="text-xs text-gray-600">
+         Survey Numbers
+        </div>
+       </div>
+       <div class="bg-gray-50 p-4 rounded-lg text-center">
+        <div class="font-semibold text-sm">
+         ULB Tax
+        </div>
+        <div class="text-xs text-gray-600">
+         Property Tax
+        </div>
+       </div>
+       <div class="bg-gray-50 p-4 rounded-lg text-center">
+        <div class="font-semibold text-sm">
+         eCourts
+        </div>
+        <div class="text-xs text-gray-600">
+         Legal Cases
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Verification Section -->
+   <section id="verification-section" class="py-16 bg-gray-50 hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Property Verification</h2>
+      <p class="text-xl text-gray-600">AI-powered verification process with comprehensive data analysis</p>
+     </div>
+     <div class="verification-form rounded-lg p-8 shadow-xl">
+      <form id="verification-form" class="space-y-6">
+       <div class="grid md:grid-cols-2 gap-6">
+        <div><label for="property-id" class="block text-sm font-medium text-gray-700 mb-2">Property ID / Survey Number</label> <input type="text" id="property-id" name="property-id" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="e.g., TN123456789" required>
+        </div>
+        <div><label for="property-type" class="block text-sm font-medium text-gray-700 mb-2">Property Type</label> <select id="property-type" name="property-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required> <option value="">Select Property Type</option> <option value="residential">Residential</option> <option value="commercial">Commercial</option> <option value="agricultural">Agricultural</option> <option value="industrial">Industrial</option> </select>
+        </div>
+       </div>
+       <div><label for="property-address" class="block text-sm font-medium text-gray-700 mb-2">Property Address</label> <textarea id="property-address" name="property-address" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter complete property address" required></textarea>
+       </div>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div><label for="owner-name" class="block text-sm font-medium text-gray-700 mb-2">Owner Name</label> <input type="text" id="owner-name" name="owner-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Property owner name" required>
+        </div>
+        <div><label for="verification-type" class="block text-sm font-medium text-gray-700 mb-2">Verification Type</label> <select id="verification-type" name="verification-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required> <option value="">Select Verification Type</option> <option value="basic">Basic Verification</option> <option value="comprehensive">Comprehensive Verification</option> <option value="legal">Legal Due Diligence</option> </select>
+        </div>
+       </div>
+       <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div class="flex items-start">
+         <svg class="w-5 h-5 text-blue-600 mt-0.5 mr-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+         </svg>
+         <div class="text-sm text-blue-800"><strong>Secure Verification:</strong> All data is encrypted and processed through our secure verification pipeline connected to official government databases and registries.
+         </div>
+        </div>
+       </div><button type="submit" id="verify-btn" class="w-full btn-primary flex items-center justify-center"> <span id="verify-btn-text">Start Verification</span>
+        <div id="verify-spinner" class="loading-spinner ml-2 hidden"></div></button>
+      </form><!-- Verification Results -->
+      <div id="verification-results" class="mt-8 hidden">
+       <div class="border-t pt-8">
+        <h3 class="text-xl font-semibold mb-4">Verification Results</h3>
+        <div id="results-content"><!-- Results will be populated by JavaScript -->
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Dashboard Section -->
+   <section id="dashboard-section" class="py-16 bg-white hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center mb-8">
+      <div>
+       <h2 class="text-3xl font-bold text-gray-900">Dashboard</h2>
+       <p class="text-gray-600">Monitor your verification activities and system performance</p>
+      </div>
+      <div class="text-sm text-gray-500">
+       Last updated: <span id="dashboard-timestamp">Just now</span>
+      </div>
+     </div><!-- Dashboard Stats -->
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg">
+       <div class="flex items-center justify-between">
+        <div>
+         <p class="text-sm font-medium text-gray-600">Total Verifications</p>
+         <p class="text-2xl font-bold text-gray-900" id="total-verifications">1,247</p>
+        </div>
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+         <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+         </svg>
+        </div>
+       </div>
+       <div class="mt-2 text-sm text-green-600">
+        ↗ +12% from last month
+       </div>
+      </div>
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg">
+       <div class="flex items-center justify-between">
+        <div>
+         <p class="text-sm font-medium text-gray-600">Success Rate</p>
+         <p class="text-2xl font-bold text-gray-900">97.3%</p>
+        </div>
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+         <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+       </div>
+       <div class="mt-2 text-sm text-green-600">
+        ↗ +0.3% improvement
+       </div>
+      </div>
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg">
+       <div class="flex items-center justify-between">
+        <div>
+         <p class="text-sm font-medium text-gray-600">Avg Processing Time</p>
+         <p class="text-2xl font-bold text-gray-900">2.1s</p>
+        </div>
+        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+         <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+       </div>
+       <div class="mt-2 text-sm text-green-600">
+        ↓ -0.2s faster
+       </div>
+      </div>
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg">
+       <div class="flex items-center justify-between">
+        <div>
+         <p class="text-sm font-medium text-gray-600">Active Users</p>
+         <p class="text-2xl font-bold text-gray-900" id="active-users">156</p>
+        </div>
+        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+         <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+         </svg>
+        </div>
+       </div>
+       <div class="mt-2 text-sm text-green-600">
+        ↗ +8 new today
+       </div>
+      </div>
+     </div><!-- Recent Activity -->
+     <div class="dashboard-widget rounded-lg p-6 shadow-lg">
+      <h3 class="text-lg font-semibold mb-4">Recent Verification Activity</h3>
+      <div class="space-y-4" id="recent-activity"><!-- Activity items will be populated by JavaScript -->
+      </div>
+     </div>
+    </div>
+   </section><!-- Analytics Section -->
+   <section id="analytics-section" class="py-16 bg-gray-50 hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Analytics &amp; Insights</h2>
+      <p class="text-xl text-gray-600">Comprehensive analytics and performance metrics for data-driven decisions</p>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-8"><!-- Verification Trends -->
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg">
+       <h3 class="text-lg font-semibold mb-4">Verification Trends</h3>
+       <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+        <div class="text-center text-gray-500">
+         <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+         </svg>
+         <p>Interactive Chart Placeholder</p>
+         <p class="text-sm">Demo: Verification trends over time</p>
+        </div>
+       </div>
+      </div><!-- Success Rate Analysis -->
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg">
+       <h3 class="text-lg font-semibold mb-4">Success Rate Analysis</h3>
+       <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+        <div class="text-center text-gray-500">
+         <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+         </svg>
+         <p>Pie Chart Placeholder</p>
+         <p class="text-sm">Demo: Success rate breakdown</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Performance Metrics -->
+     <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg text-center">
+       <div class="text-3xl font-bold text-blue-600 mb-2">
+        2.1s
+       </div>
+       <div class="text-gray-600">
+        Average Response Time
+       </div>
+       <div class="text-sm text-green-500 mt-1">
+        15% faster than industry average
+       </div>
+      </div>
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg text-center">
+       <div class="text-3xl font-bold text-green-600 mb-2">
+        99.9%
+       </div>
+       <div class="text-gray-600">
+        System Uptime
+       </div>
+       <div class="text-sm text-green-500 mt-1">
+        Exceeds SLA requirements
+       </div>
+      </div>
+      <div class="dashboard-widget rounded-lg p-6 shadow-lg text-center">
+       <div class="text-3xl font-bold text-purple-600 mb-2">
+        97.3%
+       </div>
+       <div class="text-gray-600">
+        AI Accuracy Rate
+       </div>
+       <div class="text-sm text-green-500 mt-1">
+        Continuously improving
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- API Documentation Section -->
+   <section id="api-docs-section" class="py-16 bg-white hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">API Documentation</h2>
+      <p class="text-xl text-gray-600">Integrate ASSETRAZ verification into your applications with our RESTful API</p>
+     </div><!-- API Overview -->
+     <div class="bg-gray-50 rounded-lg p-6 mb-8">
+      <h3 class="text-xl font-semibold mb-4">Getting Started</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+       <div>
+        <h4 class="font-semibold mb-2">Base URL</h4><code class="bg-gray-800 text-green-400 px-3 py-1 rounded text-sm">https://api.assetraz.com/v1</code>
+       </div>
+       <div>
+        <h4 class="font-semibold mb-2">Authentication</h4><code class="bg-gray-800 text-green-400 px-3 py-1 rounded text-sm">Bearer YOUR_API_KEY</code>
+       </div>
+      </div>
+     </div><!-- API Endpoints -->
+     <div class="space-y-6"><!-- Verify Property -->
+      <div class="border rounded-lg p-6">
+       <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold">Verify Property</h3><span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">POST</span>
+       </div>
+       <div class="api-endpoint method-post mb-4">
+        <div class="text-green-400 mb-2">
+         POST /verify
+        </div>
+        <div class="text-gray-300 text-sm">
+         Initiate property verification process
+        </div>
+       </div>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div>
+         <h4 class="font-semibold mb-2">Request Body</h4>
+         <pre class="bg-gray-800 text-gray-300 p-4 rounded text-sm overflow-x-auto"><code>{
+  "property_id": "TN123456789",
+  "property_type": "residential",
+  "address": "123 Main St, Chennai",
+  "owner_name": "John Doe",
+  "verification_type": "comprehensive"
+}</code></pre>
+        </div>
+        <div>
+         <h4 class="font-semibold mb-2">Response</h4>
+         <pre class="bg-gray-800 text-gray-300 p-4 rounded text-sm overflow-x-auto"><code>{
+  "verification_id": "ver_abc123",
+  "status": "processing",
+  "estimated_completion": "2024-01-15T10:30:00Z",
+  "webhook_url": "https://your-app.com/webhook"
+}</code></pre>
+        </div>
+       </div>
+      </div><!-- Get Verification Status -->
+      <div class="border rounded-lg p-6">
+       <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold">Get Verification Status</h3><span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">GET</span>
+       </div>
+       <div class="api-endpoint method-get mb-4">
+        <div class="text-green-400 mb-2">
+         GET /verify/{verification_id}
+        </div>
+        <div class="text-gray-300 text-sm">
+         Check the status of a verification request
+        </div>
+       </div>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div>
+         <h4 class="font-semibold mb-2">Parameters</h4>
+         <div class="bg-gray-50 p-4 rounded">
+          <div class="text-sm"><strong>verification_id</strong> (string, required)<br><span class="text-gray-600">The unique verification identifier</span>
+          </div>
+         </div>
+        </div>
+        <div>
+         <h4 class="font-semibold mb-2">Response</h4>
+         <pre class="bg-gray-800 text-gray-300 p-4 rounded text-sm overflow-x-auto"><code>{
+  "verification_id": "ver_abc123",
+  "status": "completed",
+  "trust_score": 87.5,
+  "verification_result": "verified",
+  "blockchain_hash": "0x1234...",
+  "certificate_url": "https://..."
+}</code></pre>
+        </div>
+       </div>
+      </div><!-- Batch Verification -->
+      <div class="border rounded-lg p-6">
+       <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold">Batch Verification</h3><span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">POST</span>
+       </div>
+       <div class="api-endpoint method-post mb-4">
+        <div class="text-green-400 mb-2">
+         POST /verify/batch
+        </div>
+        <div class="text-gray-300 text-sm">
+         Verify multiple properties in a single request
+        </div>
+       </div>
+       <div>
+        <h4 class="font-semibold mb-2">Request Body</h4>
+        <pre class="bg-gray-800 text-gray-300 p-4 rounded text-sm overflow-x-auto"><code>{
+  "properties": [
+    {
+      "property_id": "TN123456789",
+      "property_type": "residential",
+      "address": "123 Main St, Chennai"
+    },
+    {
+      "property_id": "TN987654321",
+      "property_type": "commercial",
+      "address": "456 Business Ave, Chennai"
+    }
+  ],
+  "verification_type": "basic"
+}</code></pre>
+       </div>
+      </div>
+     </div><!-- Rate Limits -->
+     <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+      <h3 class="text-lg font-semibold mb-4">Rate Limits &amp; Pricing</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+       <div class="text-center">
+        <div class="text-2xl font-bold text-gray-900">
+         1,000
+        </div>
+        <div class="text-gray-600">
+         Requests/hour (Free)
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="text-2xl font-bold text-gray-900">
+         10,000
+        </div>
+        <div class="text-gray-600">
+         Requests/hour (Pro)
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="text-2xl font-bold text-gray-900">
+         Unlimited
+        </div>
+        <div class="text-gray-600">
+         Enterprise
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main><!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8">
+     <div>
+      <div class="flex items-center space-x-3 mb-4">
+       <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+        <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
+        </svg>
+       </div><span class="text-xl font-bold">ASSETRAZ</span>
+      </div>
+      <p class="text-gray-400 text-sm">India's most trusted property verification platform powered by AI and secured by blockchain.</p>
+     </div>
+     <div>
+      <h3 class="font-semibold mb-4">Platform</h3>
+      <ul class="space-y-2 text-sm text-gray-400">
+       <li><button onclick="showSection('how-it-works')" class="hover:text-white">How It Works</button></li>
+       <li><button onclick="showSection('api-docs')" class="hover:text-white">API Documentation</button></li>
+       <li><a href="#" class="hover:text-white">Security</a></li>
+       <li><a href="#" class="hover:text-white">Compliance</a></li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="font-semibold mb-4">Resources</h3>
+      <ul class="space-y-2 text-sm text-gray-400">
+       <li><button onclick="showSection('api-docs')" class="hover:text-white text-left">API Documentation</button></li>
+       <li><button onclick="showToast('Documentation coming soon!', 'info')" class="hover:text-white text-left">User Guide</button></li>
+       <li><button onclick="showToast('Support feature coming soon!', 'info')" class="hover:text-white text-left">Support</button></li>
+       <li><button onclick="showToast('Status page coming soon!', 'info')" class="hover:text-white text-left">Status Page</button></li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="font-semibold mb-4">Connect</h3>
+      <p class="text-sm text-gray-400 mb-4">Follow our development and contribute to the platform.</p>
+      <div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-white">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
+        </svg></a> <a href="#" class="text-gray-400 hover:text-white">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+        </svg></a>
+      </div>
+     </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+     <p>© 2024 ASSETRAZ Technologies. All rights reserved. | Property Verification Platform</p>
+    </div>
+   </div>
+  </footer><!-- Scripts -->
+  <script>
+        // Application state
+        let currentSection = 'hero';
+        let verificationData = [];
+        let currentUser = {
+            name: 'Admin User',
+            avatar: 'A',
+            role: 'admin'
+        };
+
+        // Utility functions
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type} show`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function formatDate(date) {
+            return new Intl.DateTimeFormat('en-IN', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(new Date(date));
+        }
+
+        function generateId() {
+            return 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Navigation functions
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = ['hero', 'how-it-works', 'verification', 'dashboard', 'analytics', 'api-docs'];
+            sections.forEach(section => {
+                const element = document.getElementById(`${section}-section`);
+                if (element) {
+                    element.classList.add('hidden');
+                }
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(`${sectionName}-section`);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                currentSection = sectionName;
+                
+                // Update page title
+                const titles = {
+                    'hero': 'ASSETRAZ - Property Verification Platform',
+                    'how-it-works': 'How It Works - ASSETRAZ',
+                    'verification': 'Verify Property - ASSETRAZ',
+                    'dashboard': 'Dashboard - ASSETRAZ',
+                    'analytics': 'Analytics - ASSETRAZ',
+                    'api-docs': 'API Documentation - ASSETRAZ'
+                };
+                document.title = titles[sectionName] || 'ASSETRAZ';
+                
+                // Initialize section-specific functionality
+                if (sectionName === 'dashboard') {
+                    initializeDashboard();
+                } else if (sectionName === 'verification') {
+                    initializeVerificationForm();
+                }
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function handleUserMenuClick() {
+            const dropdown = document.getElementById('user-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function handleLogout() {
+            showToast('Logged out successfully', 'info');
+            document.getElementById('user-dropdown').classList.add('hidden');
+        }
+
+        // Verification form handling
+        function initializeVerificationForm() {
+            const form = document.getElementById('verification-form');
+            if (form) {
+                form.addEventListener('submit', handleVerificationSubmit);
+            }
+        }
+
+        async function handleVerificationSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Show loading state
+            const submitBtn = document.getElementById('verify-btn');
+            const btnText = document.getElementById('verify-btn-text');
+            const spinner = document.getElementById('verify-spinner');
+            
+            submitBtn.disabled = true;
+            btnText.textContent = 'Processing...';
+            spinner.classList.remove('hidden');
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                
+                // Generate mock results
+                const results = generateMockVerificationResults(data);
+                displayVerificationResults(results);
+                
+                showToast('Verification completed successfully!', 'success');
+                
+            } catch (error) {
+                showToast('Verification failed. Please try again.', 'error');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.textContent = 'Start Verification';
+                spinner.classList.add('hidden');
+            }
+        }
+
+        function generateMockVerificationResults(data) {
+            const trustScore = Math.floor(Math.random() * 20) + 80; // 80-100
+            const verificationId = generateId();
+            
+            return {
+                verificationId,
+                propertyId: data['property-id'],
+                trustScore,
+                status: trustScore > 85 ? 'verified' : 'needs_review',
+                checks: {
+                    tnreginet: { status: 'verified', confidence: 95 },
+                    rera: { status: 'verified', confidence: 92 },
+                    landRecords: { status: 'verified', confidence: 88 },
+                    ulbTax: { status: 'verified', confidence: 90 },
+                    eCourts: { status: 'clear', confidence: 94 }
+                },
+                blockchainHash: '0x' + Math.random().toString(16).substr(2, 40),
+                certificateUrl: '#demo-certificate',
+                completedAt: new Date().toISOString()
+            };
+        }
+
+        function displayVerificationResults(results) {
+            const resultsContainer = document.getElementById('verification-results');
+            const resultsContent = document.getElementById('results-content');
+            
+            const statusColor = results.status === 'verified' ? 'green' : 'yellow';
+            const statusText = results.status === 'verified' ? 'Verified' : 'Needs Review';
+            
+            resultsContent.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-${statusColor}-50 border border-${statusColor}-200 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-${statusColor}-800">Verification Status</div>
+                                <div class="text-${statusColor}-600">${statusText}</div>
+                            </div>
+                            <div class="text-2xl font-bold text-${statusColor}-600">${results.trustScore}%</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h4 class="font-semibold">Data Source Verification</h4>
+                            ${Object.entries(results.checks).map(([source, check]) => `
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="capitalize">${source.replace(/([A-Z])/g, ' $1')}</span>
+                                    <span class="text-green-600 font-medium">${check.status} (${check.confidence}%)</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Blockchain Certificate</h4>
+                            <div class="text-sm text-blue-600 break-all">${results.blockchainHash}</div>
+                            <button class="mt-2 text-blue-600 hover:text-blue-800 text-sm font-medium">
+                                Download Certificate
+                            </button>
+                        </div>
+                        
+                        <div class="text-sm text-gray-600">
+                            <div><strong>Verification ID:</strong> ${results.verificationId}</div>
+                            <div><strong>Completed:</strong> ${formatDate(results.completedAt)}</div>
+                            <div><strong>Property ID:</strong> ${results.propertyId}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            resultsContainer.classList.remove('hidden');
+        }
+
+        // Dashboard functions
+        function initializeDashboard() {
+            updateDashboardTimestamp();
+            loadRecentActivity();
+            
+            // Update timestamp every minute
+            setInterval(updateDashboardTimestamp, 60000);
+        }
+
+        function updateDashboardTimestamp() {
+            const timestampElement = document.getElementById('dashboard-timestamp');
+            if (timestampElement) {
+                timestampElement.textContent = formatDate(new Date());
+            }
+        }
+
+        function loadRecentActivity() {
+            const activityContainer = document.getElementById('recent-activity');
+            if (!activityContainer) return;
+            
+            const activities = [
+                { type: 'verification', property: 'TN123456789', status: 'completed', time: new Date(Date.now() - 5 * 60000) },
+                { type: 'verification', property: 'TN987654321', status: 'processing', time: new Date(Date.now() - 15 * 60000) },
+                { type: 'certificate', property: 'TN555666777', status: 'issued', time: new Date(Date.now() - 30 * 60000) },
+                { type: 'verification', property: 'TN111222333', status: 'completed', time: new Date(Date.now() - 45 * 60000) }
+            ];
+            
+            activityContainer.innerHTML = activities.map(activity => `
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-medium">${activity.property}</div>
+                            <div class="text-sm text-gray-600 capitalize">${activity.type} ${activity.status}</div>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-500">${formatDate(activity.time)}</div>
+                </div>
+            `).join('');
+        }
+
+        // Live stats updates
+        function updateLiveStats() {
+            const verificationCount = document.getElementById('live-verifications');
+            const activeUsers = document.getElementById('active-users');
+            const totalVerifications = document.getElementById('total-verifications');
+            
+            if (verificationCount) {
+                const current = parseInt(verificationCount.textContent.replace(',', ''));
+                verificationCount.textContent = (current + Math.floor(Math.random() * 3)).toLocaleString();
+            }
+            
+            if (activeUsers) {
+                const current = parseInt(activeUsers.textContent);
+                activeUsers.textContent = Math.max(100, current + Math.floor(Math.random() * 10) - 5);
+            }
+            
+            if (totalVerifications) {
+                const current = parseInt(totalVerifications.textContent.replace(',', ''));
+                totalVerifications.textContent = (current + Math.floor(Math.random() * 2)).toLocaleString();
+            }
+        }
+
+        // Initialize application
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('ASSETRAZ Platform - Production Environment');
+            
+            // Initialize live stats updates
+            updateLiveStats();
+            setInterval(updateLiveStats, 30000);
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(event) {
+                const userDropdown = document.getElementById('user-dropdown');
+                const userMenuBtn = document.getElementById('user-menu-btn');
+                
+                if (!userMenuBtn.contains(event.target)) {
+                    userDropdown.classList.add('hidden');
+                }
+            });
+            
+            // Initialize verification form if on verification page
+            if (currentSection === 'verification') {
+                initializeVerificationForm();
+            }
+            
+            showToast('Welcome to ASSETRAZ Platform!', 'info');
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99fda4fa638117b7',t:'MTc2MzM2NTkwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
